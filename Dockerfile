@@ -19,8 +19,7 @@ Add REMOTE /mirror/
 USER mirror
 RUN cd /mirror && ./clone.sh
 
-# Try to initialize known_hosts
-RUN ssh -o 'StrictHostKeyChecking no' -N github.com || true
+# Initialize known_hosts
 RUN ssh -o 'StrictHostKeyChecking no' -N github.com || true
 
 ENTRYPOINT /bin/sh -c "cd /mirror && ./daemon.sh"
