@@ -12,8 +12,11 @@ RUN adduser --home /mirror --disabled-password -gecos 'mirror scripts' mirror
 # https://github.com/docker/docker/issues/6820
 ADD clone.sh /mirror/
 ADD update.sh /mirror/
+ADD daemon.sh /mirror/
 ADD ORIGIN /mirror/
 ADD REPOS /mirror/
 Add REMOTE /mirror/
 USER mirror
 RUN cd /mirror && ./clone.sh
+
+ENTRYPOINT /bin/sh -c "cd /mirror && ./daemon.sh"
