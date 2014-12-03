@@ -4,11 +4,17 @@
 
 REMOTE=$(cat REMOTE)
 
-for repo in $(cat REPOS); do
-  echo ${repo}...
-  $(cd ${repo}.git && git fetch && git push --mirror ${REMOTE}${repo}.git) || exit
-  #cd ${repo}.git
-  #git fetch
-  #git push --mirror ${REMOTE}${repo}.git
-  #cd ..
-done
+while read repo; do
+    info=($repo)
+    oname=${info[0]}
+    rname=${info[0]}
+    if [ ${#info[@]} -gt 1 ]; then
+        rname=${info[1]}
+    fi
+    if [ "$oname" = "$rname" ]; then
+        echo Pushing ${oname}...
+    else
+        echo Pushing ${oname} as ${rname}...
+    fi
+    $(cd ${oname}.git && git fetch && git push --mirror ${REMOTE}${rname}.git) || exit
+done < REPOS
