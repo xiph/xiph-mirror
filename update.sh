@@ -6,15 +6,17 @@ REMOTE=$(cat REMOTE)
 
 while read repo; do
     info=($repo)
-    oname=${info[0]}
-    rname=${info[0]}
+    srcname=${info[0]}
+    destname=${info[0]}
     if [ ${#info[@]} -gt 1 ]; then
-        rname=${info[1]}
+        destname=${info[1]}
     fi
-    if [ "$oname" = "$rname" ]; then
-        echo Pushing ${oname}...
+    if [ "$srcname" = "$destname" ]; then
+        echo Updating ${srcname}...
     else
-        echo Pushing ${oname} as ${rname}...
+        echo Updating ${srcname} as ${destname}...
     fi
-    $(cd ${oname}.git && git fetch && git push --mirror ${REMOTE}${rname}.git) || exit
+    echo "fetching in ${srcname}.git..."
+    $(cd ${srcname}.git && git fetch && \
+      git push --mirror ${REMOTE}${destname}.git) || exit
 done < REPOS
