@@ -4,6 +4,17 @@
 
 ORIGIN=$(cat ORIGIN)
 
-for repo in $(cat REPOS); do
-  git clone --mirror ${ORIGIN}${repo}.git || exit
-done
+while read repo; do
+  line=($repo)
+  name=${line[0]}
+  dir=$(dirname ${name})
+  if test ! -z ${dir} -a ! -d ${dir}; then
+    mkdir ${dir}
+  fi
+  if test ! -z ${dir}; then
+    olddir=$PWD
+    cd ${dir}
+    test -d $(basename ${name}.git) || git clone --mirror ${ORIGIN}${name}.git || exit
+    cd ${olddir}
+  fi
+done < REPOS
