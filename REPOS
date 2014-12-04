@@ -4,7 +4,7 @@ flac-website
 opus
 opus-tools
 xiph-mirror
-icecast-server icecast-icecast
+icecast-server icecast-server
 icecast-common icecast-common
 icecast-directory icecast-directory
 icecast-ices icecast-ices
