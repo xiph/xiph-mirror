@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Update checkouts and push changes to our remote.
 

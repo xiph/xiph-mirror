@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Make checkouts of the repositories we'd like to mirror
 
