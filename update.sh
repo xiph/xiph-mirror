@@ -16,7 +16,6 @@ while read repo; do
     else
         echo Updating ${srcname} as ${destname}...
     fi
-    echo "fetching in ${srcname}.git..."
     $(cd ${srcname}.git && git fetch && \
       git push --mirror ${REMOTE}${destname}.git) || exit
 done < REPOS
