@@ -4,9 +4,9 @@ flac-website
 opus
 opus-tools
 xiph-mirror
-icecast-server icecast-server
-icecast-common icecast-common
-icecast-directory icecast-directory
-icecast-ices icecast-ices
-icecast-libshout icecast-libshout
-icecast-m4 icecast-m4
+icecast-server
+icecast-common
+icecast-directory
+icecast-ices
+icecast-libshout
+icecast-m4
