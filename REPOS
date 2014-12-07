@@ -3,6 +3,8 @@ flac
 flac-website
 opus
 opus-tools
+speex
+speexdsp
 xiph-mirror
 icecast-server
 icecast-common
