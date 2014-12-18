@@ -3,6 +3,7 @@ flac
 flac-website
 opus
 opus-tools
+opusfile
 speex
 speexdsp
 xiph-mirror
