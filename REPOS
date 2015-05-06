@@ -1,11 +1,14 @@
 daala
 flac
 flac-website
+ogg
 opus
 opus-tools
 opusfile
 speex
 speexdsp
+theora
+vorbis
 xiph-mirror
 icecast-server
 icecast-common
