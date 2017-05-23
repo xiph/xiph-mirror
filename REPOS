@@ -7,7 +7,7 @@ opus-tools
 opus-website
 opus-logo
 opusfile
-opusenc
+libopusenc
 speex
 speexdsp
 theora
