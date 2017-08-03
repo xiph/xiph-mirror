@@ -8,6 +8,7 @@ opus-website
 opus-logo
 opusfile
 libopusenc
+rnnoise
 speex
 speexdsp
 theora
