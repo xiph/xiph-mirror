@@ -2,9 +2,10 @@
 
 # Update checkouts and push changes to our remote.
 
-REMOTE=$(cat REMOTE)
+REMOTES=$(cat REMOTES)
 
-while read repo; do
+while read repo
+do
     info=($repo)
     srcname=${info[0]}
     destname=${info[0]}
@@ -17,5 +18,8 @@ while read repo; do
         echo Updating ${srcname} as ${destname}...
     fi
     $(cd ${srcname}.git && git fetch && \
-      git push --mirror ${REMOTE}${destname}.git) || exit
+      for remote in ${REMOTES}; do \
+        git push --mirror ${remote}${destname}.git; \
+      done
+    ) || exit
 done < REPOS
