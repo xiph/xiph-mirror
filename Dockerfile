@@ -15,11 +15,12 @@ ADD update.sh /mirror/
 ADD daemon.sh /mirror/
 ADD ORIGIN /mirror/
 ADD REPOS /mirror/
-Add REMOTE /mirror/
+Add REMOTES /mirror/
 USER mirror
 RUN cd /mirror && ./clone.sh
 
 # Initialize known_hosts
 RUN ssh -o 'StrictHostKeyChecking no' -N github.com || true
+RUN ssh -o 'StrictHostKeyChecking no' -N gitlab.xiph.org || true
 
 ENTRYPOINT /bin/sh -c "cd /mirror && ./daemon.sh"
