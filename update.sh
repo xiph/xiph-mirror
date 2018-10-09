@@ -17,7 +17,7 @@ do
     else
         echo Updating ${srcname} as ${destname}...
     fi
-    $(cd ${srcname}.git && git fetch && \
+    (cd ${srcname}.git && git fetch && \
       for remote in ${REMOTES}; do \
         git push --mirror ${remote}${destname}.git; \
       done
